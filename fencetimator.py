@@ -66,6 +66,17 @@ for order in range(10):
             x=(4*(-order)+2)*c-ax
             mirror.addwire(icurr,x,ay)
 
+
+# make a plot of bx and by along the mu-metal surface
+y1d=np.mgrid[-1.2:1.2:1001j]
+bx1d,by1d=mycoil.bcoil(1.2,y1d)
+bx1d_mirror,by1d_mirror=mirror.bcoil(1.2,y1d)
+plt.plot(y1d,bx1d)
+plt.plot(y1d,by1d)
+plt.plot(y1d,bx1d_mirror)
+plt.plot(y1d,by1d_mirror)
+plt.show()
+
 outer_roi=1.5 # m, for range of plot
 x2d,y2d=np.mgrid[1.15:1.25:101j,-outer_roi:outer_roi:101j]
 #x2d,y2d=np.mgrid[-outer_roi:outer_roi:101j,-outer_roi:outer_roi:101j]
